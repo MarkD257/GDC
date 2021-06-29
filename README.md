@@ -1,6 +1,8 @@
 # GDC
 The code for this project was constructed with some code borrowed from a PluralSight Dependency Injection course. I have worked on projects that used Unity for DI. I have only used Di with existing projects. With .Net Core, DI became a code standard but not with console applications. I used VS 2019 not VS Code.
- Players.csv is a test file.
+ Players.csv is a test file.  
+ 
+Add the Directory Search feature as a last item after double-checking the requirement. Test file copied to bin folder.
  
 Technical Assignment
 
