@@ -10,7 +10,6 @@ namespace GDCConsoleApp
     {
         private readonly ICSVReader dataReader;
 
-
         public IEnumerable<Player> players;
 
         public List<Player> validPlayerEmails;

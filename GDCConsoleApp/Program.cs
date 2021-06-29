@@ -21,13 +21,12 @@ namespace GDCConsoleApp
 			string filename = "";
 
 			Console.WriteLine("Hello GDC!");
-
-			//Console.WriteLine("Enter CSV Filename including Path");
-
+			
+			string appCurrentBaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
 			//    G:\Projects\GDC\Players.csv
 			while (filename == "")
 			{
-				Console.WriteLine("Enter CSV Filename including Path");
+				Console.WriteLine("Enter CSV Filename NOT including Path");
 				filename = Console.ReadLine();
 			}
 
@@ -38,7 +37,7 @@ namespace GDCConsoleApp
 			try
 			{
 				Console.WriteLine(Environment.NewLine + "Player List:" + Environment.NewLine);	
-				worker.LoadPlayers(filename);
+				worker.LoadPlayers(FileSearcher.findFile(filename, appCurrentBaseDirectory));
 			}
 			catch (FileNotFoundException)   //Validate File Exists
 			{
