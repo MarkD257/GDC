@@ -57,15 +57,15 @@ namespace GDCConsoleApp
 
 			IEnumerable<Player> players = worker.players;
 
-			players.ToList().ForEach(p => Console.WriteLine(p.FirstName + " " + p.LastName));
+			players.ToList().ForEach(p => Console.WriteLine(p.FirstName + " " + p.LastName + " - " + p.EmailAddress));
 
 			Console.WriteLine(Environment.NewLine);
 			Console.WriteLine("Valid player emails...");
-			worker.validPlayerEmails.ToList().ForEach(p => Console.WriteLine(p.LastName + " " + p.EmailAddress));
+			worker.validPlayerEmails.ToList().ForEach(p => Console.WriteLine(p.LastName + " - " + p.EmailAddress));
 
 			Console.WriteLine(Environment.NewLine);
 			Console.WriteLine("Invalid player emails...");
-			worker.invalidPlayerEmails.ToList().ForEach(p => Console.WriteLine(p.LastName + " " + p.EmailAddress));
+			worker.invalidPlayerEmails.ToList().ForEach(p => Console.WriteLine(p.LastName + " - " + p.EmailAddress));
 
 			Console.WriteLine(Environment.NewLine);
 			Console.WriteLine("Press any key to exit...");
