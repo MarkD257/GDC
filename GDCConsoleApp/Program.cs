@@ -42,14 +42,17 @@ namespace GDCConsoleApp
 			}
 			catch (FileNotFoundException)   //Validate File Exists
 			{
-				Console.WriteLine("The file: " + filename + " was not found");
+				Console.WriteLine("The file: '" + filename + "' was not found");
 				Console.WriteLine("Press any key to exit...");
 				Console.ReadKey();
 				return;
 			}
 			catch (System.Exception)
 			{
-				throw;
+				Console.WriteLine("The file: '" + filename + "' was not valid");
+				Console.WriteLine("Press any key to exit...");
+				Console.ReadKey();
+				return;
 			}
 
 			IEnumerable<Player> players = worker.players;
