@@ -26,7 +26,7 @@ namespace GDCConsoleApp
 			//    G:\Projects\GDC\Players.csv
 			while (filename == "")
 			{
-				Console.WriteLine("Enter CSV Filename NOT including Path");
+				Console.WriteLine("Enter CSV Filename with or without path (bin folder will be used)");
 				filename = Console.ReadLine();
 			}
 
@@ -36,8 +36,11 @@ namespace GDCConsoleApp
 
 			try
 			{
-				Console.WriteLine(Environment.NewLine + "Player List:" + Environment.NewLine);	
-				worker.LoadPlayers(FileSearcher.findFile(filename, appCurrentBaseDirectory));
+				Console.WriteLine(Environment.NewLine + "Name List:" + Environment.NewLine);
+				if (filename.Contains(@"\"))
+					worker.LoadPlayers(filename);
+				else
+					worker.LoadPlayers(FileSearcher.findFile(filename, appCurrentBaseDirectory));
 			}
 			catch (FileNotFoundException)   //Validate File Exists
 			{
@@ -59,11 +62,11 @@ namespace GDCConsoleApp
 			players.ToList().ForEach(p => Console.WriteLine(p.FirstName + " " + p.LastName + " - " + p.EmailAddress));
 
 			Console.WriteLine(Environment.NewLine);
-			Console.WriteLine("Valid player emails...");
+			Console.WriteLine("Valid emails...");
 			worker.validPlayerEmails.ToList().ForEach(p => Console.WriteLine(p.LastName + " - " + p.EmailAddress));
 
 			Console.WriteLine(Environment.NewLine);
-			Console.WriteLine("Invalid player emails...");
+			Console.WriteLine("Invalid emails...");
 			worker.invalidPlayerEmails.ToList().ForEach(p => Console.WriteLine(p.LastName + " - " + p.EmailAddress));
 
 			Console.WriteLine(Environment.NewLine);
